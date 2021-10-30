@@ -1,17 +1,22 @@
-const express = require('express');
-const app = express()
+const express = require("express");
+const app = express();
+const morgan = require("morgan");
 
 // bring in routes
-const postRoutes = require('./routes/post')
+const { getPosts } = require("./routes/post");
 
-app.get("/", postRoutes.getPosts)
+const myOwnMiddleware = (req, res, next) => {
+  console.log("middleware applied !!!");
+  next();
+};
 
-// app.get("/", (req, res) => {
-//   res.send("Hello World From Node JS.")
-// })
+// middleware
+app.use(morgan("dev"));
+app.use(myOwnMiddleware); // 적용시 서버 doesn't go further next() 적용
 
+app.get("/", getPosts);
 
-const port = 8080
+const port = 8080;
 app.listen(port, () => {
-  console.log(`A Node JS API is listening on port ${port}`)
-})
+  console.log(`A Node JS API is listening on port ${port}`);
+});
