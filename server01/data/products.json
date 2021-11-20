@@ -34,5 +34,11 @@
     "title": "Test Product",
     "description": "This is my product",
     "price": 100
+  },
+  {
+    "id": "ae1d771e-6566-4940-a00c-8d69933bbf0a",
+    "title": "Brads Product",
+    "description": "This is a product",
+    "price": 50
   }
 ]
