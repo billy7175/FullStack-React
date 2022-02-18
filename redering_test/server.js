@@ -6,7 +6,7 @@ let list = []
 let num = 0
 
 // create 100,000 records
-for (let i = 0; i < 100_000; i++) {
+for (let i = 0; i < 500_000; i++) {
   num++
   list.push({
     src: 'https://miro.medium.com/fit/c/64/64/1*XYGoKrb1w5zdWZLOIEevZg.png',
@@ -22,7 +22,6 @@ http.createServer(function (req, res) {
     "Access-Control-Allow-Methods": "DELETE,PUT,POST,GET,OPTIONS",
     'Access-Control-Allow-Headers': 'Content-Type'
   })
-
   res.end(JSON.stringify(list));
 }).listen(port, function () {
   console.log('server is listening on port ' + port);
